@@ -8,14 +8,7 @@
 
 <br>
 <div class="row">
-    <div class="col">
-        <div class="card card-body">
-            <form method="get">
-
-            <button class="btn btn-primary" type="submit">Search</button>
-          </form>
-        </div>
-    </div>
+  
     
 </div>
 <br>
@@ -36,7 +29,7 @@
 
                 {% for customer in customers %}
                         <tr>
-                            <td><a href="{% url 'customers' customer.id %}">View</a></td>
+                            <td><a href="{% url 'customers' customer.id %}" class="btn btn-sm btn-primary">View</a></td>
                             <td>{{customer.name}}</td>
                             <td>{{customer.phone}}</td>
                             
@@ -51,7 +44,7 @@
         <h5>Last 5 Order</h5>
         <hr>
         <div class="card card-body">
-            <a href="" class="btn btn-primary btn-sm btn-block"> Create Order</a>
+            <a href="{% url 'create_order' %}" class="btn btn-primary btn-sm btn-block"> Create Order</a>
             <table class="table table-sm">
                 <tr>
                     <th>Products</th>
@@ -68,8 +61,8 @@
                     <td>{{order.product}}</td>
                     <td>{{order.date_created}}</td>
                     <td>{{order.status}}</td>
-                    <td><a href="">Update</a></td>
-                    <td><a href="">Delete</a></td>
+                    <td><a href="{% url 'update_order' order.id %}" class="btn btn-sm btn-info">Update</a></td>
+                    <td><a href="{% url 'delete_order' order.id %}" class="btn btn-sm btn-danger">Delete</a></td>
                     
                     
                     
